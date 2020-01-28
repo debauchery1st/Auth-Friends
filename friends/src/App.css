@@ -1,0 +1,22 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.Menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: navy;
+  color: whitesmoke;
+  width: 100vw;
+}
+
+.MenuLink {
+  padding: 0.5rem;
+  color: whitesmoke;
+  text-decoration: none;
+}
