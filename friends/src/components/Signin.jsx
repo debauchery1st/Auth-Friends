@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+
 import axios from "axios";
 
-const Signin = props => {
+const Signin = ({ onstart, ...kwargs }) => {
+  const history = useHistory();
   const initCreds = {
     username: "",
     password: ""
@@ -20,12 +23,14 @@ const Signin = props => {
         setSignError("");
         setCreds({ ...initCreds });
         localStorage.setItem("token", res.data.payload);
+        history.push("/friends");
       })
       .catch(err => {
         console.log(err.response);
         setSignError(err.response.data.error);
       });
   };
+  onstart && onstart();
   return (
     <form onSubmit={handleSubmit}>
       {signError && <div className="Error">{signError}</div>}

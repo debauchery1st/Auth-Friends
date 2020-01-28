@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const axiosWithAuth = () => {
+export const axiosWithAuth = () => {
   // returns partial-Promise
   return axios.create({
     baseURL: "http://localhost:5000/api",
@@ -10,4 +10,9 @@ const axiosWithAuth = () => {
   });
 };
 
-export default axiosWithAuth;
+export const getWithAuth = (url, th, c) => () => {
+  return axiosWithAuth()
+    .get(url)
+    .then(response => th(response))
+    .catch(errors => c(errors));
+};
