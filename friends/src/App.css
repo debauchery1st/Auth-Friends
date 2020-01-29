@@ -28,3 +28,25 @@
   align-items: center;
   padding: 1rem;
 }
+
+.NewFriend {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.AddNewFriend {
+  display: flex;
+  font-family: "Gloria Hallelujah", cursive;
+  width: 11rem;
+  justify-content: center;
+  border-radius: 1rem;
+}
+
+.hDiv {
+  display: flex;
+  /* padding: 0.1rem; */
+  border-radius: 0.5rem;
+}

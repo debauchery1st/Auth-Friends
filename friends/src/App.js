@@ -3,6 +3,7 @@ import { NavLink, Route, Switch, Redirect } from "react-router-dom";
 import Signin from "./components/Signin";
 import FriendList from "./components/FriendList";
 import PrivateRoute from "./components/PrivateRoute";
+import NewFriend from "./components/NewFriend";
 
 import "./App.css";
 
@@ -55,6 +56,12 @@ function App() {
         />
         <Route path="/signin" component={Signin} onstart={handleLogin} />
         <Route path="/signout" component={handleLogout} />
+        <Route
+          exact
+          path="/new"
+          component={NewFriend}
+          friendcount={() => localStorage.getItem("count")}
+        />
       </Switch>
     </div>
   );

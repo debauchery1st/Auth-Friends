@@ -19,14 +19,14 @@ const Signin = ({ onstart, ...kwargs }) => {
     axios
       .post("http://localhost:5000/api/login", creds)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         setSignError("");
         setCreds({ ...initCreds });
         localStorage.setItem("token", res.data.payload);
         history.push("/friends");
       })
       .catch(err => {
-        console.log(err.response);
+        // console.log(err.response);
         setSignError(err.response.data.error);
       });
   };

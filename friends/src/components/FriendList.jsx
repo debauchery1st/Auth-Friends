@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { NavLink } from "react-router-dom";
 import Friend from "./Friend";
 import Spinner from "./Spinner";
 
@@ -12,13 +12,14 @@ const FriendList = () => {
   useEffect(() => {
     if (lcycle) return;
     setLcycle(1);
-    console.log("...get");
+    // console.log("...get");
     axiosWithAuth()
       .get("/friends")
       .then(response => {
-        console.log(".then");
+        // console.log(".then");
         setLcycle(2);
         setFriends(response.data);
+        localStorage.setItem("count", response.data.length || 0);
       })
       .catch(errors => {
         setLcycle(3);
@@ -29,6 +30,9 @@ const FriendList = () => {
 
   return (
     <span className="Friends">
+      <NavLink className="BodyLink" to="/new">
+        New
+      </NavLink>
       {lcycle === 4 ? <Spinner /> : ""}
       {friends.map(friendProps => (
         <Friend key={friendProps.id} {...friendProps} />
