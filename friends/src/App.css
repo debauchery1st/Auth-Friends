@@ -1,0 +1,76 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.Menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: navy;
+  color: whitesmoke;
+  width: 100vw;
+}
+
+.MenuLink {
+  letter-spacing: 2px;
+  padding: 0.5rem;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.Title {
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+}
+
+.NewFriend {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.AddNewFriend {
+  display: flex;
+  font-family: "Gloria Hallelujah", cursive;
+  width: 11rem;
+  justify-content: center;
+  border-radius: 1rem;
+}
+
+.hDiv {
+  display: flex;
+  /* padding: 0.1rem; */
+  border-radius: 0.5rem;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid navy; /* Blue */
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Signin {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0.2rem;
+}
