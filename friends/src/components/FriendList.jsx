@@ -30,10 +30,13 @@ const FriendList = () => {
 
   return (
     <span className="Friends">
-      <NavLink className="BodyLink" to="/new">
-        New
-      </NavLink>
-      {lcycle === 4 ? <Spinner /> : ""}
+      {lcycle === 4 ? (
+        <Spinner />
+      ) : (
+        <NavLink className="BodyLink" to="/new">
+          New
+        </NavLink>
+      )}
       {friends.map(friendProps => (
         <Friend key={friendProps.id} {...friendProps} />
       ))}

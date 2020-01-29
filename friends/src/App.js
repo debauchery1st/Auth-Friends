@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, Route, Switch, Redirect } from "react-router-dom";
+import { NavLink, Route, Switch, Redirect, useHistory } from "react-router-dom";
 import Signin from "./components/Signin";
 import FriendList from "./components/FriendList";
 import PrivateRoute from "./components/PrivateRoute";
@@ -8,6 +8,7 @@ import NewFriend from "./components/NewFriend";
 import "./App.css";
 
 function App() {
+  const history = useHistory();
   const [showLogin, setShowLogin] = useState(true);
 
   const handleLogin = () => {
@@ -18,7 +19,7 @@ function App() {
     localStorage.removeItem("token");
     return <Redirect to="/signin" />;
   };
-  const ttl = window.location.pathname.replace("/", "⚛");
+  const ttl = history.location.pathname.replace("/", "⚛");
   return (
     <div className="App">
       <header>
@@ -56,10 +57,10 @@ function App() {
         />
         <Route path="/signin" component={Signin} onstart={handleLogin} />
         <Route path="/signout" component={handleLogout} />
-        <Route
+        <PrivateRoute
           exact
           path="/new"
-          component={NewFriend}
+          component={() => <NewFriend history={history} />}
           friendcount={() => localStorage.getItem("count")}
         />
       </Switch>

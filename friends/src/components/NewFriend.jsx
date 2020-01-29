@@ -16,7 +16,6 @@ const NewFriend = props => {
     axiosWithAuth()
       .post("/friends", friend)
       .then(resp => {
-        console.log(resp);
         setFriend({ ...zfriend });
         props.history.push("/friends");
       })
