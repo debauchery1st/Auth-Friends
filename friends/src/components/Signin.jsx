@@ -37,6 +37,7 @@ const Signin = ({ onstart, ...kwargs }) => {
       <input
         type="username"
         name="username"
+        autoComplete="username"
         placeholder="Username"
         value={creds.username}
         onChange={handleChange}
@@ -44,6 +45,7 @@ const Signin = ({ onstart, ...kwargs }) => {
       <input
         type="password"
         name="password"
+        autoComplete="password"
         placeholder="Password"
         value={creds.password}
         onChange={handleChange}

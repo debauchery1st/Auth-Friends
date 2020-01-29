@@ -16,7 +16,15 @@
 }
 
 .MenuLink {
+  letter-spacing: 2px;
   padding: 0.5rem;
   color: whitesmoke;
   text-decoration: none;
+}
+
+.Title {
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
 }

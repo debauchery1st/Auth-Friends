@@ -3,7 +3,6 @@ import { NavLink, Route, Switch, Redirect } from "react-router-dom";
 import Signin from "./components/Signin";
 import FriendList from "./components/FriendList";
 import PrivateRoute from "./components/PrivateRoute";
-import { getWithAuth } from "./utils/axiosWithAuth";
 
 import "./App.css";
 
@@ -15,8 +14,10 @@ function App() {
   };
   const handleLogout = () => {
     setShowLogin(true);
-    return <Redirect to="/" />;
+    localStorage.removeItem("token");
+    return <Redirect to="/signin" />;
   };
+  const ttl = window.location.pathname.replace("/", "⚛");
   return (
     <div className="App">
       <header>
@@ -36,13 +37,21 @@ function App() {
         </nav>
       </header>
       <hr />
+      <div className="Title">{ttl}</div>
       <Switch>
         <PrivateRoute
           path="/friends"
           component={() => {
             handleLogin();
-            return <FriendList friendsGetter={getWithAuth} />;
+            return <FriendList />;
           }}
+        />
+        <Route
+          exact
+          path="/"
+          component={() =>
+            showLogin ? <Redirect to="/signin" /> : <Redirect to="/friends" />
+          }
         />
         <Route path="/signin" component={Signin} onstart={handleLogin} />
         <Route path="/signout" component={handleLogout} />
